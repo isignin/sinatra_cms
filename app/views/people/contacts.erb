@@ -1,0 +1,8 @@
+<h1>List of Contacts for <%= fullname(@person) %></h1>
+<table>
+<th>ID</th><th>Last Name</th><th>First Name</th>
+<% @contacts.each do |contact| %>
+    <tr>
+		<td><%= contact.id %></td><td><%= contact.last_name %></td><td><%= contact.first_name %></td>
+	</tr>
+<% end %> 
