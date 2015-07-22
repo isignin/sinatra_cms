@@ -1,17 +1,20 @@
-<h1>Laboratory List</h1>
-<table class="table">
-<th>ID</th><th>Case ID</th><th>Last Name</th><th>First Name</th><th>Date Received</th><th>Date Completed</th><th>Test By</th><th>Result</th>
-<tbody>
-<% @labs.each do |lab| %>
-    <tr>
-		<td><%= lab.id %></td>
-		<td><a href='/people/<%= person.id %>'><%= lab.person.id %></a></td>
-		<td><%= lab.person.last_name %></td>
-		<td><%= lab.person.first_name %></td>
-		<td><%= lab.date_received %></td>
-		<td><%= lab.date_completed %></td>
-		<td><%= lab.tested_by %></td>
-		<td><%= lab.result %></td>  
-	</tr>
-<% end %> 
-</tbody> 
+<div class="container">
+	<h1>Laboratory List</h1>
+	<table class="table">
+	<th>ID</th><th>Case ID</th><th>Last Name</th><th>First Name</th><th>Date Received</th><th>Date Completed</th><th>Tested By</th><th>Result</th>
+	<tbody>
+	<% @labs.each do |lab| %>
+	    <tr>
+			<td><%= lab.id %></td>
+			<td><a href='/people/<%= person.id %>'><%= lab.person.id %></a></td>
+			<td><%= lab.person.last_name %></td>
+			<td><%= lab.person.first_name %></td>
+			<td><%= lab.date_received %></td>
+			<td><%= lab.date_completed %></td>
+			<td><%= lab.tested_by %></td>
+			<td><%= lab.result %></td>  
+		</tr>
+	<% end %> 
+	</tbody> 
+</table>
+</div>

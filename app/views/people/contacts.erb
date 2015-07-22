@@ -1,11 +1,20 @@
-<h1>List of Contacts for <%= fullname(@person) %></h1>
-<table>
-<th>ID</th><th>Last Name</th><th>First Name</th><th>Contacts</th>
-<% @contacts.each do |person| %>
-    <tr>
-		<td><%= person.id %></td><td><%= person.last_name %></td><td><%= person.first_name %></td>
-		<% if (person.contacts_by.count > 0 || person.contacts_with.count > 0 ) %>
- 		  <td><a href='/people/contacts/<%= person.id %>'>Contacts</a></td>
-		<% end %>
-	</tr>
-<% end %> 
+<div class="container">
+	<h1>List of Contacts for <%= fullname(@person) %></h1>
+	<table class="table">
+	<th>ID</th><th>Last Name</th><th>First Name</th><th>Contacts</th>
+	<tbody>
+	<% @contacts.each do |person| %>
+	    <tr>
+			<td><%= person.id %></td>
+			<td><%= person.last_name %></td>
+			<td><%= person.first_name %></td>
+			<td>
+			<% if (person.contacts_by.count > 0 || person.contacts_with.count > 0 ) %>
+	 		  <a href='/people/contacts/<%= person.id %>'>Contacts</a>
+			<% end %>
+			</td>
+		</tr>
+	<% end %> 
+    </tbody>
+   </table>
+</div>
