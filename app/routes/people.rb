@@ -11,17 +11,25 @@ module Cms
         erb :"people/index"
       end
       
+      get "/people/new" do
+        @person = Person.new
+        erb :"people/new"
+      end
+      
       get "/people/:id" do
         @person = Person[params[:id]]
         erb :"people/show"
       end
-      
+
       post '/people' do
-        person = Person.new params[:person]
-        if person.save
-         "Record posted"
+        @person = Person.create(params[:person])
+        @person.lab = Lab.new
+        if @person.save
+          flash[:notice] = "Record created"
+          erb :"/people"
         else
-         "Error saving record"
+         flash[:notice] = "Error creating Record"
+         erb :""
         end
       end
         

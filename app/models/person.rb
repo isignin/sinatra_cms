@@ -6,7 +6,7 @@ class Person < Sequel::Model
   
   def validate
     super
-    validates_presence [:first_name, :last_name, :gender, :birthdate, :parent]
+    validates_presence [:first_name, :last_name, :gender, :birthdate, :parent_name]
   end
     
 end

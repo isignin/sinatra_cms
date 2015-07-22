@@ -5,6 +5,7 @@ Sequel.migration do
       Integer :case_id
       String :first_name
       String :last_name
+      String :gender
       String :birthdate
       String :parent_name  
     end

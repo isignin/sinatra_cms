@@ -22,6 +22,7 @@ unless DB.table_exists?(:people)
     Integer :case_id
     String :first_name
     String :last_name
+    String :gender
     String :birthdate
     String :parent_name
    end
@@ -38,7 +39,7 @@ end
 unless DB.table_exists?(:labs)
   DB.create_table :labs do
     primary_key :id
-    Integer :case_id
+    Integer :person_id
     String :date_received
     String :date_completed
     String :result

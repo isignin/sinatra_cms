@@ -6,6 +6,6 @@ class Lab < Sequel::Model
   
   def validate
     super
-    validates_presence [:case_id, :date_received, :date_completed, :result, :test_by]
+    #validates_presence [:date_received, :date_completed, :result, :tested_by]
   end
 end  
