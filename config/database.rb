@@ -19,7 +19,7 @@ end
 unless DB.table_exists?(:people)
   DB.create_table :people do
     primary_key :id
-    integer :case_id
+    Integer :case_id
     String :first_name
     String :last_name
     String :birthdate
@@ -33,6 +33,17 @@ unless DB.table_exists?(:contacts)
     Integer :contact_with_id
   end
   DB.add_index :contacts, [:contact_by_id, :contact_with_id] 
+end
+
+unless DB.table_exists?(:labs)
+  DB.create_table :labs do
+    primary_key :id
+    Integer :case_id
+    String :date_received
+    String :date_completed
+    String :result
+    String :tested_by
+   end
 end
 
 

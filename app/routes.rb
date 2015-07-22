@@ -5,6 +5,6 @@ module Cms
       autoload :Static, 'app/routes/static'
       autoload :Users, 'app/routes/users'
       autoload :People, 'app/routes/people'
-      
+      autoload :Labs, 'app/routes/labs'
     end
   end

@@ -63,6 +63,7 @@ module Cms
     use Routes::Users
     use Routes::People
     use Routes::Static
+    use Routes::Labs
     
     unless settings.production?
       use Routes::Assets
