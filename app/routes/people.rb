@@ -51,7 +51,7 @@ module Cms
       
       get '/people/contacts/:id' do
         @person = Person[params[:id]]
-        @contacts = @person.contacts_with
+        @contacts = @person.contacts_with + @person.contacts_by
         erb :"people/contacts"
       end
         

@@ -4,6 +4,9 @@
 <% @people.each do |person| %>
     <tr>
 		<td><%= person.id %></td><td><%= person.last_name %></td><td><%= person.first_name %></td>
-		<td><%= person.parent_name %></td><td><%= person.birthdate %></td><td><a href='/people/contacts/<%= person.id %>'>Contacts</a>
+		<td><%= person.parent_name %></td><td><%= person.birthdate %></td>
+		<% if person.contacts_with.count > 0 %>
+ 		  <td><a href='/people/contacts/<%= person.id %>'>Contacts</a></td>
+		<% end %>	  
 	</tr>
 <% end %>  
