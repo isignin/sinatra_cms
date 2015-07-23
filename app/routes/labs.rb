@@ -24,10 +24,10 @@ module Cms
       post '/labs' do
         @lab = Lab.new params[:lab]
         if @lab.save
-         flash[:notice]="Lab Record posted"
+         flash.now[:notice]="Lab Record posted"
          erb :"labs/show"
         else
-         flash[:notice] = "Error saving Lab Record"
+         flash.now[:notice] = "Error saving Lab Record"
          erb :"labs/edit"
         end
       end
@@ -35,10 +35,10 @@ module Cms
       post '/lab/:id' do
          @lab = Lab[params[:id]]
          if !@lab.nil? && @lab.update(params[:lab])
-           flash[:notice]="Lab Record updated successfully"
+           flash.now[:notice] ="Lab Record updated successfully"
            erb :"labs/show"
          else
-           flash[:notice] = "Error updating Lab record"
+           flash.now[:notice] = "Error updating Lab record"
            erb :"labs/edit"
          end 
       end
@@ -48,13 +48,13 @@ module Cms
         lab = Lab[params[:id]]
         if !lab.nil? 
           if lab.delete
-            "Lab Record delete successfully"
+            flash.now[:notice]= "Lab Record delete successfully"
           else
             status 500
             json person.errors.full_message
           end
         else
-          "Lab Record Not found"
+         flash.now[:notice] = "Lab Record Not found"
         end  
       end 
     end 

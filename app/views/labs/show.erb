@@ -1,8 +1,19 @@
 <div class="container">
-   <h1>Laboratory Record</h1>
+   <div class="title_icon"><img src="/labs.png"></div> <h1>Laboratory Record</h1>
+   <div class="col-sm-6" style="outline: 1px solid orange;padding-bottom: 30px">
+      <table class="table">	   
+	   <tr><td colspan='2'><button style="float:right"><a href="/labs/<%= @lab.id %>/edit">Edit</a></button> <h2>Lab Record</h2></td></tr>
+	   <tr><td>Lab id : </td><td><%= @lab.id %></td></tr>
+	   <tr><td>Date Received : </td><td><%= @lab.date_received %></td></tr>
+	   <tr><td>Date Completed : </td><td><%= @lab.date_completed %></td></tr>
+	   <tr><td>Tested by : </td><td><%= @lab.tested_by %></td></tr>
+	   <tr><td>Result : </td><td><%= @lab.result %></td></tr>   
+      </table>	 
+   </div>
+   <div class="col-sm-1">  </div>
    <div class="col-sm-5" style="outline: 1px solid orange;"> 
      <table class="table">
-	   <tr><td colspan='2'><h2>Case Info</h2></td></tr>
+	   <tr><td colspan='2'><div class="title_icon"><img src="/person.png"></div><h2>Case Info</h2></td></tr>
 	   <tr><td>Case id : </td><td><%= @lab.person_id %></td></tr>
 	   <tr><td>Name : </td><td><%= @lab.person.first_name %></td></tr>
 	   <tr><td>Family Name : </td><td><%= @lab.person.last_name %></td></tr>
@@ -10,16 +21,8 @@
 	   <tr><td>Birthday : </td><td><%= @lab.person.birthdate %></td></tr>
 	   <tr><td>Parent's Name : </td><td><%= @lab.person.parent_name %></td></tr>
       </table>  
-	 </div>
-	 <div class="col-sm-1">  </div>
-	 <div class="col-sm-6" style="outline: 1px solid orange;">
-      <table class="table">	   
-	   <tr><td colspan='2'><h2>Lab Record</h2></td></tr>
-	   <tr><td>Lab id : </td><td><%= @lab.id %></td></tr>
-	   <tr><td>Date Received : </td><td><%= @lab.date_received %></td></tr>
-	   <tr><td>Date Completed : </td><td><%= @lab.date_completed %></td></tr>
-	   <tr><td>Tested by : </td><td><%= @lab.tested_by %></td></tr>
-	   <tr><td>Result : </td><td><%= @lab.result %></td></tr>	   
-      </table>	 
-   </div>	
-</div>   
+   </div>
+ 	
+</div> 
+
+	  
