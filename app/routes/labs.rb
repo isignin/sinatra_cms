@@ -15,27 +15,36 @@ module Cms
         @lab = Lab[params[:id]]
         erb :"labs/show"
       end
+      
+      get "/labs/:id/edit" do
+        @lab = Lab[params[:id]]
+        erb :"labs/edit"
+      end
     
       post '/labs' do
-        lab = Lab.new params[:lab]
-        if lab.save
-         "Lab Record posted"
+        @lab = Lab.new params[:lab]
+        if @lab.save
+         flash[:notice]="Lab Record posted"
+         erb :"labs/show"
         else
-         "Error saving Lab Record"
+         flash[:notice] = "Error saving Lab Record"
+         erb :"labs/edit"
         end
       end
       
-      put '/lab/:id' do
+      post '/lab/:id' do
          @lab = Lab[params[:id]]
          if !@lab.nil? && @lab.update(params[:lab])
-           "Lab Record updated successfully"
+           flash[:notice]="Lab Record updated successfully"
+           erb :"labs/show"
          else
-           "Error updating Lab record"
+           flash[:notice] = "Error updating Lab record"
+           erb :"labs/edit"
          end 
       end
     
       
-      delete '/lab/:id' do
+      delete '/labs/:id' do
         lab = Lab[params[:id]]
         if !lab.nil? 
           if lab.delete

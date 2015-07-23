@@ -5,7 +5,7 @@
 	<tbody>
 	<% @labs.each do |lab| %>
 	    <tr>
-			<td><%= lab.id %></td>
+			<td><a href='/labs/<%= lab.id %>'><%= lab.id %></a></td>
 			<td><a href='/people/<%= lab.person_id %>'><%= lab.person_id %></a></td>
 			<td><%= lab.person.last_name %></td>
 			<td><%= lab.person.first_name %></td>

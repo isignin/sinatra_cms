@@ -1,12 +1,13 @@
 <div class="container">
 	<h1>List of People</h1>
 	<table class="table">
-	<th>ID</th><th>Last Name</th><th>First Name</th><th>Parent's Name</th><th>Birthdate</th><th> </th>
+	<th>ID</th><th>Last Name</th><th>First Name</th><th>Parent's Name</th><th>Birthdate</th><th>Lab Report</th><th></th>
 	<tbody>
 	<% @people.each do |person| %>
 	    <tr>
 			<td><%= person.id %></td><td><%= person.last_name %></td><td><%= person.first_name %></td>
 			<td><%= person.parent_name %></td><td><%= person.birthdate %></td>
+			<td><a href='/labs/<%= person.lab.id %>'>Lab</a></td>
 			<td>
 			<% if person.contacts_with.count > 0 %>
 	 		  <a href='/people/contacts/<%= person.id %>'>Contacts</a>

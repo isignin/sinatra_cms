@@ -1,0 +1,57 @@
+<div class="container">
+	<h1>Edit A Lab Record</h1>
+	<% if flash[:notice] %>
+	  <div class="disposable_alert"><%= flash[:notice] %></div>
+	<% end %>  
+    <div id='navigation' class="clearfix"></div>
+	<div>
+	   <div class="form-group">
+	    <label class="control-label col-sm-2">Case ID:</label>
+	    <div class="col-sm-10"><%= @lab.person_id%></div>
+	   </div>	
+	   <div class="form-group">
+	    <label class="control-label col-sm-2">Name:</label>
+	    <div class="col-sm-10"><%= lab.person.first_name%> <%= @lab.person.last_name %></div>
+	   </div>
+	   <div class="form-group">
+	    <label class="control-label col-sm-2">Gender:</label>
+	    <div class="col-sm-10"><%= lab.person.gender %></div>
+	   </div>
+	   <div class="form-group">
+	    <label class="control-label col-sm-2">Birthday:</label>
+	    <div class="col-sm-10"><%= lab.person.birthdate %></div>
+	   </div>
+		<form class="form-horizontal" role="form" action="/labs" method="post">
+		  <div class="form-group">
+		    <label class="control-label col-sm-2" for="date_received">Date Received:</label>
+		    <div class="col-sm-10">
+			<input type="text" class="form-control" id="date_received" name="lab[date_received]" placeholder="Enter Received Date ">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label class="control-label col-sm-2" for="date_completed">Date Completed:</label>
+		    <div class="col-sm-10"> 
+		      <input type="text" class="form-control" id="date_completed" name="lab[date_completed]" placeholder="Enter Completed Date">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label class="control-label col-sm-2" for="tested_by">Tested By:</label>
+		    <div class="col-sm-10"> 
+		      <input type="text" class="form-control" id="tested_by" name="lab[tested_by]" placeholder="Enter Tested By">
+		    </div>
+		  </div>
+		  <div class="form-group">
+			  <label class="control-label col-sm-2" for="result">Result:</label>
+			  <div class="col-sm-10">
+			    <label class="radio-inline"><input type="radio" name="lab[result]">Negative</label>
+			    <label class="radio-inline"><input type="radio" name="lab[result]">Positive</label>
+		      </div>
+		  </div>
+		  <div class="form-group"> 
+		    <div class="col-sm-offset-2 col-sm-10">
+		      <button type="submit" class="btn btn-default">Submit</button>
+		    </div>
+		  </div>
+		</form>
+	</div>
+</div>

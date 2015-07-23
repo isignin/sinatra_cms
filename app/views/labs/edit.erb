@@ -1,0 +1,50 @@
+<div class="container">
+	<h1>Edit A Lab Record</h1>
+	<% if flash[:notice] %>
+	  <div class="disposable_alert"><%= flash[:notice] %></div>
+	<% end %>  
+    <div id='navigation' class="clearfix"></div>
+	<div>
+		<table class="table">
+			<tr><td class="control-label col-sm-2">Case ID:</td><td><%= @lab.person_id%></td></tr>
+			<tr><td class="control-label col-sm-2">Name:</td><td><%= @lab.person.first_name%> <%= @lab.person.last_name %></td></tr>
+			<tr><td class="control-label col-sm-2">Gender:</td><td><%= @lab.person.gender%></td></tr>
+			<tr><td class="control-label col-sm-2">Birthday:</td><td><%= @lab.person.birthdate%></td></tr>
+		</table>
+		<div class="container" style="padding-top: 20px; outline: 1px solid orange;">	
+			<form class="form-horizontal" role="form" action="/lab/<%= @lab.id %>" method="post">
+			  <input type="hidden" name="_method" value="put">
+			  <div class="form-group">
+			    <label class="control-label col-sm-2" for="date_received">Date Received:</label>
+			    <div class="col-sm-10">
+				<input type="text" class="form-control" id="date_received" name="lab[date_received]" value="<%= @lab.date_received %>" >
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label class="control-label col-sm-2" for="date_completed">Date Completed:</label>
+			    <div class="col-sm-10"> 
+			      <input type="text" class="form-control" id="date_completed" name="lab[date_completed]" value="<%= @lab.date_completed %>" >
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label class="control-label col-sm-2" for="tested_by">Tested By:</label>
+			    <div class="col-sm-10"> 
+			      <input type="text" class="form-control" id="tested_by" name="lab[tested_by]" value="<%= @lab.tested_by %>" >
+			    </div>
+			  </div>
+			  <div class="form-group">
+				  <label class="control-label col-sm-2" for="result">Result:</label>
+				  <div class="col-sm-10">
+				    <label class="radio-inline"><input type="radio" name="lab[result]" <%= "checked='checked'" if @lab.result=="Negative" %> value="Negative">Negative</label>
+				    <label class="radio-inline"><input type="radio" name="lab[result]" <%= "checked='checked'" if @lab.result=="Positive" %> value="Positive">Positive</label>
+			      </div>
+			  </div>
+			  <div class="form-group"> 
+			    <div class="col-sm-offset-2 col-sm-10">
+			      <button type="submit" class="btn btn-default">Submit</button>
+			    </div>
+			  </div>
+			</form>
+		  </div>	
+	</div>
+</div>
