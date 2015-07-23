@@ -61,6 +61,7 @@ module Cms
      use Rack::Standards
      
     # Other routes:
+    use Routes::Apps
     use Routes::Users
     use Routes::People
     use Routes::Static
