@@ -30,13 +30,14 @@ require 'app/extensions'
 require 'app/models'
 require 'app/helpers'
 require 'app/routes'
+require 'lib/tag_helpers'
 
 module Cms
   class App < Sinatra::Base
     
     register Sinatra::Contrib
     register Sinatra::Flash
-      
+    
     configure do
       register Sinatra::Partial
 
