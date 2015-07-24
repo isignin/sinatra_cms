@@ -6,7 +6,7 @@ Sequel.migration do
       String :email
       String :first_name
       String :last_name
-      String :password
+      String :password_digest
       String :token
       Boolean :verified, :default => false
     end

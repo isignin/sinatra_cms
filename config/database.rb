@@ -10,7 +10,7 @@ unless DB.table_exists?(:users)
     String :email
     String :first_name
     String :last_name
-    String :password
+    String :password_digest
     String :token
     Integer :verified, :default => false
    end

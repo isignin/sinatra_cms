@@ -30,6 +30,7 @@ gem 'memcachier'
 
 #DB
 gem 'sequel'
+gem 'sequel_secure_password'
 gem 'sinatra-sequel'
 gem 'sqlite3'
 
