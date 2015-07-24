@@ -1,37 +1,37 @@
 <div class="container" style="margin-top: 20px; outline: 1px solid orange;">
-	<div class="title_icon"><img src="/person.png"></div><h1>Add A New Case</h1>
+	<div class="title_icon"><img src="/person.png"></div><h1>Edit Case Profile</h1>
     <div id='navigation' class="clearfix"></div>
 	<div>
-		<form class="form-horizontal" role="form" action="/people" method="post">
+		<form class="form-horizontal" role="form" action="/person/<%= @person.id %>" method="post">
 		  <div class="form-group">
 		    <label class="control-label col-sm-2" for="first_name">First Name:</label>
 		    <div class="col-sm-10">
-		      <input type="text" class="form-control" id="first_name" name="person[first_name]" placeholder="Enter First Name">
+		      <input type="text" class="form-control" id="first_name" name="person[first_name]" value="<%= @person.first_name %>">
 		    </div>
 		  </div>
 		  <div class="form-group">
 		    <label class="control-label col-sm-2" for="last_name">Family/Last Name:</label>
 		    <div class="col-sm-10"> 
-		      <input type="text" class="form-control" id="last_name" name="person[last_name]" placeholder="Enter Family Name">
+		      <input type="text" class="form-control" id="last_name" name="person[last_name]" value="<%= @person.last_name %>">
 		    </div>
 		  </div>
 		  <div class="form-group">
 			  <label class="control-label col-sm-2" for="gender">Gender:</label>
 			  <div class="col-sm-10">
-			    <label class="radio-inline"><input type="radio" name="person[gender]" value="Male">Male</label>
-			    <label class="radio-inline"><input type="radio" name="person[gender]" value="Female">Female</label>
+			    <label class="radio-inline"><input type="radio" name="person[gender]" <%= "checked='checked'" if @person.gender=='Male' %> value="Male"> Male</label>
+			    <label class="radio-inline"><input type="radio" name="person[gender]" <%= "checked='checked'" if @person.gender=='Female' %> value='Female'>Female</label>
 		      </div>
 		  </div>
 		  <div class="form-group">
 		    <label class="control-label col-sm-2" for="birthday">Birth date:</label>
 		    <div class="col-sm-10"> 
-		      <input type="text" class="form-control" id="birthday" name="person[birthdate]" placeholder="Enter Birth Date">
+		      <input type="text" class="form-control" id="birthday" name="person[birthdate]" value="<%= @person.birthdate %>">
 		    </div>
 		  </div>
 		  <div class="form-group">
 		    <label class="control-label col-sm-2" for="parent">Parent's Name:</label>
 		    <div class="col-sm-10"> 
-		      <input type="text" class="form-control" id="parent" name="person[parent_name]" placeholder="Enter Parent's Name">
+		      <input type="text" class="form-control" id="parent" name="person[parent_name]" value="<%= @person.parent_name %>">
 		    </div>
 		  </div>
 		  <div class="form-group"> 

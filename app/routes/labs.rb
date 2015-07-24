@@ -27,7 +27,7 @@ module Cms
          flash.now[:notice]="Lab Record posted"
          erb :"labs/show"
         else
-         flash.now[:notice] = "Error saving Lab Record"
+         flash.now[:alert] = "Error saving Lab Record"
          erb :"labs/edit"
         end
       end
@@ -38,7 +38,7 @@ module Cms
            flash.now[:notice] ="Lab Record updated successfully"
            erb :"labs/show"
          else
-           flash.now[:notice] = "Error updating Lab record"
+           flash.now[:alert] = "Error updating Lab record"
            erb :"labs/edit"
          end 
       end
@@ -54,7 +54,7 @@ module Cms
             json person.errors.full_message
           end
         else
-         flash.now[:notice] = "Lab Record Not found"
+         flash.now[:alert] = "Lab Record Not found"
         end  
       end 
     end 

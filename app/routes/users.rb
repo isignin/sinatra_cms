@@ -19,18 +19,18 @@ module Cms
       post '/users' do
         user = User.new params[:user]
         if user.save
-         "Record posted"
+         flash.now[:notice]="Record posted"
         else
-         "Error saving record"
+         flash.now[:alert]= "Error saving record"
         end
       end
         
       put '/users/:id' do
          @user = User[params[:id]]
          if !@user.nil? && @user.update(params[:user])
-           "Record updated successfully"
+           flash.now[:notice]= "Record updated successfully"
          else
-           "Error updating record"
+           flash.now[:alert]= "Error updating record"
          end 
       end
       
@@ -58,18 +58,18 @@ module Cms
         @user = User[:username => params[:username]]
          if !@user.nil?
            if @user.password != params[:password] 
-            flash[:notice] = "Incorrect password" 
+            flash.now[:notice] = "Incorrect password" 
              redirect '/login'    
             else 
               if !@user.verified
-               flash[:notice] = "User is not verified"
+               flash.now[:notice] = "User is not verified"
                redirect '/login'
               else
-                flash[:notice] = "User is verified. You are ok, #{@user.username}"
+                flash.now[:notice] = "User is verified. You are ok, #{@user.username}"
               end 
             end  
          else
-          flash[:notice] = "I don't know you #{params[:username]}"
+          flash.now[:notice] = "I don't know you #{params[:username]}"
           redirect '/login'
          end
       end
@@ -86,9 +86,9 @@ module Cms
                     :from => 'admin@example.com',
                     :subject => 'Email address verification',
                     :body => erb(:"users/verification_mail")
-          "Verification Email sent"
+          flash.now[:notice]="Verification Email sent"
         else
-          "Error saving record"
+          flash.now[:alert]= "Error saving record"
           user.errors.full_message
         end    
       end
@@ -102,7 +102,7 @@ module Cms
              @user.errors.full_message
           end
         else
-          "Token invalid. Please contact your administrator"
+          flash.now[:alert] = "Token invalid. Please contact your administrator"
         end
       end
       
@@ -115,9 +115,9 @@ module Cms
                     :from => 'admin@example.com',
                     :subject => 'Password reset',
                     :body => erb(:"users/password_reset_mail")
-          "Password reset email sent"
+         flash.now[:notice]= "Password reset email sent"
         else
-          "I do not know you...."
+          flash.now[:alert] = "I do not know you...."
         end    
       end
       
@@ -127,7 +127,7 @@ module Cms
           @user.update(:token => nil)
           erb :"users/password_reset_form"
         else
-          "Token invalid. Please contact your administrator"
+          flash.now[:alert]= "Token invalid. Please contact your administrator"
         end
       end
       
@@ -135,16 +135,16 @@ module Cms
         if params[:password] == params[:pass_confirm]
          @user = User[params[:id]]
          if @user.nil?
-           "Do not know you..."
+           flash.now[:alert]= "Do not know you..."
          else
            if @user.update(:password => params[:password])
-             "Password has been reset"
+             flash.now[:notice]="Password has been reset"
            else
-             "Error encountered resetting your password. Please contact your administrator"
+             flash.now[:alert]= "Error encountered resetting your password. Please contact your administrator"
            end      
          end
         else
-          "New Password does not match your confirm password"
+          flash.now[:alert]= "New Password does not match your confirm password"
         end 
       end
           

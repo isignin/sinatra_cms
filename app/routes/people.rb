@@ -20,25 +20,32 @@ module Cms
         @person = Person[params[:id]]
         erb :"people/show"
       end
+      
+      get "/people/:id/edit" do
+        @person = Person[params[:id]]
+        erb :"people/edit"
+      end
 
       post '/people' do
         @person = Person.create(params[:person])
         @person.lab = Lab.new
         if @person.save
-          flash[:notice] = "Record created"
-          erb :"/people"
+          flash.now[:notice] = "Record created"
+          erb :"/people/index"
         else
-         flash[:notice] = "Error creating Record"
-         erb :""
+         flash.now[:alert] = "Error creating Record"
+         erb :"/people/new"
         end
       end
         
-      put '/people/:id' do
+      post '/person/:id' do
          @person = Person[params[:id]]
          if !@person.nil? && @person.update(params[:person])
-           "Record updated successfully"
+           flash.now[:notice] = "Record updated successfully"
+           erb :"people/show"
          else
-           "Error updating record"
+           flash.now[:alert] = "Error updating record"
+           erb :"people/edit"
          end 
       end
       
@@ -47,13 +54,13 @@ module Cms
         person = Person[params[:id]]
         if !person.nil? 
           if person.delete
-            "Record delete successfully"
+            flash.now[:notice] = "Record delete successfully"
           else
             status 500
             json person.errors.full_message
           end
         else
-          "Record Not found"
+          flash.now[:alert] = "Record Not found"
         end  
       end 
       
