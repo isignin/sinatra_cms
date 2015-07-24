@@ -1,30 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Cms</title>
-    <meta name="viewport" content="width=device-width, user-scalable=no">
-    <meta charset="utf-8">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon-precomposed" href="CmsIcon.png"/>
-
-    <link rel="stylesheet" href="stylesheets/tangerine.less.css">
-    <link rel="stylesheet" href="stylesheets/style.css">
-    <link rel="stylesheet" href="jquery-ui.css">
-</head>	
-<body>
-    <div id='navigation' class="clearfix"></div>
-    <div id="content_wrapper">
-		<div id='content'>
-			<div class="login_view">
-				<img src="tangerine_logo.png" id="login_logo">
-				<form action="/login" method="post">
-				  Name: <input type="text" name="username"><br>
-				  Password: <input type="password" name="password"><br>
-				  <button class="login" type="submit">Login</button>
-				</form>
-			</div>
+<style>
+table {
+    border-collapse: collapse;
+}
+td {
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+table.center {
+    margin-left:auto; 
+    margin-right:auto;
+  }
+#content {}
+</style>
+<div id='navigation' class="clearfix"></div>
+<div class="container">
+	<div id='content'>
+		<div class="login_view">
+			<form action="/login" method="post">
+			<table class="center">
+			  <tr><td colspan="2"><img src="logo.jpg" id="login_logo"></td></tr>	
+			  <tr><td>Name: </td><td><input type="text" name="username"></td></tr>
+			  <tr><td>Password: </td><td><input type="password" name="password"></td></tr>
+			  <tr><td> </td><td><button class="login" type="submit">Login</button></td></tr>
+		    </table>
+			</form>
 		</div>
-	</div>			
-</body>	
-</html>
+	</div>
+</div>			

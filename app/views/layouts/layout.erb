@@ -12,9 +12,12 @@
   <%= yield_content :head %>
 </head>
 <body>
-  <div class="container"><h1>Case Management System</h1></div>	
-  <%= partial 'layouts/flash_messages' %>	
-  <%= yield %>
+  <div class="container">
+	  <h1>Case Management System</h1>
+      <%= partial 'layouts/flash_messages' %>	
+      <%= yield %> 
+      <hr>
+   </div>	  
   <script src="<%= asset_path 'bootstrap.min.js' %>"></script>
 </body>
 </html>

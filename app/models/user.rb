@@ -1,5 +1,6 @@
 class User < Sequel::Model
   plugin :validation_helpers
+  plugin :secure_password
   
   def validate
     super

@@ -11,15 +11,21 @@ module Cms
         erb :"users/index"
       end
       
+      get "/users/new" do
+        user = User.new
+        erb :"users/new"
+      end
+      
       get "/users/:id" do
         @user = User[params[:id]]
         erb :"users/show"
       end
       
       post '/users' do
-        user = User.new params[:user]
-        if user.save
-         flash.now[:notice]="Record posted"
+        @user = User.new params[:user]
+        if @user.save
+         flash.now[:notice]="New User Record posted"
+         erb :"users/show"
         else
          flash.now[:alert]= "Error saving record"
         end
@@ -57,15 +63,16 @@ module Cms
 
         @user = User[:username => params[:username]]
          if !@user.nil?
-           if @user.password != params[:password] 
-            flash.now[:notice] = "Incorrect password" 
-             redirect '/login'    
+           if @user.authenticate(params[:password]).nil?
+              flash.now[:notice] = "Incorrect password" 
+              redirect '/login'    
             else 
               if !@user.verified
                flash.now[:notice] = "User is not verified"
                redirect '/login'
               else
                 flash.now[:notice] = "User is verified. You are ok, #{@user.username}"
+                redirect "/"
               end 
             end  
          else
