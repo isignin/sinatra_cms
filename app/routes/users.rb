@@ -21,6 +21,11 @@ module Cms
         erb :"users/show"
       end
       
+      get "/users/:id/edit" do
+        @user = User[params[:id]]
+        erb :"users/edit"
+      end
+      
       post '/users' do
         @user = User.new params[:user]
         if @user.save
@@ -31,12 +36,14 @@ module Cms
         end
       end
         
-      put '/users/:id' do
+      post '/user/:id' do
          @user = User[params[:id]]
          if !@user.nil? && @user.update(params[:user])
            flash.now[:notice]= "Record updated successfully"
+           erb :"users/show"
          else
            flash.now[:alert]= "Error updating record"
+           erb :"users/show"
          end 
       end
       
@@ -56,7 +63,7 @@ module Cms
       end  
       
       get '/login' do
-        erb :"users/login"
+        erb :"users/login", :layout => false
       end  
       
       post '/login' do
@@ -138,13 +145,13 @@ module Cms
         end
       end
       
-      post 'reset_now' do
+      post 'reset_pass' do
         if params[:password] == params[:pass_confirm]
          @user = User[params[:id]]
          if @user.nil?
            flash.now[:alert]= "Do not know you..."
          else
-           if @user.update(:password => params[:password])
+           if !@user.update(:password => params[:password], :password_confirmation => params[:password_confirmation]).nil?
              flash.now[:notice]="Password has been reset"
            else
              flash.now[:alert]= "Error encountered resetting your password. Please contact your administrator"
