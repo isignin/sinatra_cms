@@ -1,7 +1,7 @@
 <div class="container">
-	<img src="/labs.png" style="float:left; padding-right:20px"><h1>Laboratory List</h1>
+	<div class="title_icon"><img src="/labs.png"></div><h1>Laboratory List</h1>
 	<table class="table">
-	<th>ID</th><th>Case ID</th><th>Last Name</th><th>First Name</th><th>Date Received</th><th>Date Completed</th><th>Tested By</th><th>Result</th>
+	<th>ID</th><th>Case ID</th><th>Last Name</th><th>First Name</th><th>Date Received</th><th>Completed</th><th>Date Completed</th><th>Tested By</th><th>Result</th>
 	<tbody>
 	<% @labs.each do |lab| %>
 	    <tr>
@@ -10,6 +10,7 @@
 			<td><%= lab.person.last_name %></td>
 			<td><%= lab.person.first_name %></td>
 			<td><%= lab.date_received %></td>
+			<td><%= lab.completed %></td>
 			<td><%= lab.date_completed %></td>
 			<td><%= lab.tested_by %></td>
 			<td><%= lab.result %></td>  

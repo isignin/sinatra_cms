@@ -1,10 +1,11 @@
 <div class="container">
    <div class="title_icon"><img src="/labs.png"></div> <h1>Laboratory Record</h1>
-   <div class="col-sm-6" style="outline: 1px solid orange;padding-bottom: 30px">
+   <div class="col-sm-6" style="outline: 1px solid orange;">
       <table class="table">	   
 	   <tr><td colspan='2'><button style="float:right"><a href="/labs/<%= @lab.id %>/edit">Edit</a></button> <h2>Lab Record</h2></td></tr>
 	   <tr><td>Lab id : </td><td><%= @lab.id %></td></tr>
 	   <tr><td>Date Received : </td><td><%= @lab.date_received %></td></tr>
+	   <tr><td>Completed : </td><td><%= @lab.completed %></td></tr>
 	   <tr><td>Date Completed : </td><td><%= @lab.date_completed %></td></tr>
 	   <tr><td>Tested by : </td><td><%= @lab.tested_by %></td></tr>
 	   <tr><td>Result : </td><td><%= @lab.result %></td></tr>   

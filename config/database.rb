@@ -44,6 +44,7 @@ unless DB.table_exists?(:labs)
     String :date_completed
     String :result
     String :tested_by
+    Boolean :completed, :default => false
    end
 end
 
