@@ -1,7 +1,9 @@
 require 'sinatra/base'
 
 module Sinatra
+  module Helpers
     module TagHelpers
+          # Codes adapted from Padrino
           ##
           # Tag values escaped to html entities.
           #
@@ -287,6 +289,7 @@ module Sinatra
             end
             parsed_options
           end
-  end 
-  helpers TagHelpers  
+    end
+  end   
+  helpers Helpers::TagHelpers  
 end

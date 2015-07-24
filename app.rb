@@ -24,13 +24,13 @@ require 'rake'
 require 'logger'
 
 Dir['lib/**/*.rb'].sort.each { |file| require file }
+Dir['app/helpers/**/*.rb'].sort.each { |file| require file }
 
 require 'config/database'
 require 'app/extensions'
 require 'app/models'
 require 'app/helpers'
 require 'app/routes'
-require 'lib/tag_helpers'
 
 module Cms
   class App < Sinatra::Base
