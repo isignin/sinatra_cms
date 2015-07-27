@@ -8,5 +8,9 @@ class Person < Sequel::Model
     super
     validates_presence [:first_name, :last_name, :gender, :birthdate, :parent_name]
   end
+  
+  def contacts
+    contacts_by + contacts_with
+  end  
     
 end
