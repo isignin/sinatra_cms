@@ -10,7 +10,7 @@
 			<td><%= lab.person.last_name %></td>
 			<td><%= lab.person.first_name %></td>
 			<td><%= lab.date_received %></td>
-			<td><%= lab.completed %></td>
+			<td><% if lab.completed == 1 %><img src="check-mark.png"><% end %></td>
 			<td><%= lab.date_completed %></td>
 			<td><%= lab.tested_by %></td>
 			<td><%= lab.result %></td>  
