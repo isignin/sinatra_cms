@@ -2,7 +2,7 @@
 .td-label {width: 300px;}
 </style>
 <div class="container">
-   <div class="title_icon"><img src="/person.png"></div><h1>Case Profile</h1>
+   <div class="title_icon"><a href="/people"><img src="/person.png"></a></div><h1>Case Profile</h1>
    <div style="padding-bottom: 10px">
 	   <button><a href="/people/<%= @person.id %>/edit">Edit Record</a></button>
 	   <button><a href="/labs/<%= @person.lab.id %>">Lab</a></button>
@@ -13,8 +13,22 @@
    <table class="table">
 	   <tr><td class="td-label">Name : </td><td><%= @person.first_name %></td></tr>
 	   <tr><td class="td-label">Family Name : </td><td><%= @person.last_name %></td></tr>
+	   <tr><td class="td-label">Middle Name : </td><td><%= @person.middle_name %></td></tr>
+	   <tr><td class="td-label">Nickname : </td><td><%= @person.nickname %></td></tr>
 	   <tr><td class="td-label">Gender : </td><td><%= @person.gender %></td></tr>
 	   <tr><td class="td-label">Birthday : </td><td><%= @person.birthdate %></td></tr>
 	   <tr><td class="td-label">Parent's Name : </td><td><%= @person.parent_name %></td></tr>
+	   <tr><td class="td-label">Date of Detected : </td><td><%= @person.date_detected %></td></tr>
+	   <tr><td class="td-label">Form completed by : </td><td><%= @person.form_completed_by %></td></tr>
+	   <tr><td class="td-label">Info transmitted by : </td><td><%= @person.info_transmitted_by %></td></tr>
+	   <tr><td class="td-label">Notified by : </td><td><%= @person.notified_by %></td></tr>
+	   <tr><td class="td-label">Notification Group : </td><td><%= @person.notification_group %></td></tr>
+	   <tr><td class="td-label">Relationship to Patient : </td><td><%= @person.relationship_to_patient %></td></tr>
+	   <tr><td class="td-label">Head of Household : </td><td><%= @person.head_of_household %></td></tr>
+	   <tr><td class="td-label">Village/District : </td><td><%= @person.village_district %></td></tr>
+	   <tr><td class="td-label">Country : </td><td><%= @person.country %></td></tr>
+	   <tr><td class="td-label">Nationality : </td><td><%= @person.nationality %></td></tr>
+	   <tr><td class="td-label">Ethnic Group : </td><td><%= @person.ethnic_group %></td></tr>
+	   
     </table>	 
 </div>   
