@@ -38,7 +38,7 @@ module Cms
         end
       end
         
-      post '/person/:id' do
+      put '/people/:id' do
          @person = Person[params[:id]]
          if !@person.nil? && @person.update(params[:person])
            flash.now[:notice] = "Record updated successfully"

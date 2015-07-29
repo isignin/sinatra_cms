@@ -24,7 +24,7 @@ require 'rake'
 require 'logger'
 
 Dir['lib/**/*.rb'].sort.each { |file| require file }
-Dir['app/helpers/**/*.rb'].sort.each { |file| require file }
+#Dir['app/helpers/**/*.rb'].sort.each { |file| require file }
 
 require 'config/database'
 require 'app/extensions'
@@ -59,6 +59,7 @@ module Cms
     
      use Rack::Deflater
      use Rack::Standards
+     use Rack::MethodOverride
      
     # Other routes:
     use Routes::Apps

@@ -9,7 +9,7 @@
 			<tr><td class="control-label col-sm-2">Birthday:</td><td><%= @lab.person.birthdate%></td></tr>
 		</table>
 		<div class="container" style="padding-top: 20px; outline: 1px solid orange;">	
-			<form class="form-horizontal" role="form" action="/lab/<%= @lab.id %>" method="post">
+			<form class="form-horizontal" role="form" action="/labs/<%= @lab.id %>" method="post">
 			  <input type="hidden" name="_method" value="put">
 			  <div class="form-group">
 			    <label class="control-label col-sm-2" for="date_received">Date Received:</label>

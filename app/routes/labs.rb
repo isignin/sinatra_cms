@@ -32,7 +32,7 @@ module Cms
         end
       end
       
-      post '/lab/:id' do
+      put '/labs/:id' do
          @lab = Lab[params[:id]]
          if !@lab.nil? && @lab.update(params[:lab])
            flash.now[:notice] ="Lab Record updated successfully"
