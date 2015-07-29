@@ -49,6 +49,8 @@ module Cms
 
       use Rack::CommonLogger, file
       
+      set :method_override, true
+      
       set :sessions,
           :httponly     => true,
           :secure       => production?,
@@ -59,7 +61,6 @@ module Cms
     
      use Rack::Deflater
      use Rack::Standards
-     use Rack::MethodOverride
      
     # Other routes:
     use Routes::Apps
