@@ -12,9 +12,9 @@
   <%= yield_content :head %>
 </head>
 <body>
-  <div class="title_icon"><a href="/"><img src="/home.png"></a></div>	
   <div class="container">
 	  <h1>Case Management System</h1>
+	  <div class="title_icon" style="float:right"><a href="/"><img src="/home.png" title="home"></a></div>
       <%= partial 'layouts/flash_messages' %>	
       <%= yield %> 
       <hr>
