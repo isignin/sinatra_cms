@@ -1,10 +1,6 @@
 module Cms
   module Routes
     class People < Base
-      configure do
-        enable :partial_underscores
-        set :partial_template_engine, :erb
-      end
           
       get '/people' do
         @people = Person.all

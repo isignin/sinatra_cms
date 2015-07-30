@@ -1,10 +1,6 @@
 module Cms
   module Routes
     class Labs < Base
-      configure do
-        enable :partial_underscores
-        set :partial_template_engine, :erb
-      end
     
       get '/labs' do
         @labs = Lab.all

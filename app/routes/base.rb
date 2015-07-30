@@ -4,8 +4,10 @@ module Cms
       configure do
         set :views, 'app/views'
         set :root, App.root
-
-        disable :method_override
+        enable :partial_underscores
+        set :partial_template_engine, :erb
+        
+        enable :method_override
         disable :protection
         disable :static
 
