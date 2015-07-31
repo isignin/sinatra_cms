@@ -1,7 +1,11 @@
 require 'sinatra/sequel'
 require 'sqlite3'
  
-DB=Sequel.sqlite("tmp/cms.db")
+DB = case ENV['RACK_ENV']
+  when 'test' then Sequel.sqlite
+  when 'production' then Sequel.sqlite("tmp/cms_production.db") 
+  else Sequel.sqlite("tmp/cms.db")  # development
+end
 
 unless DB.table_exists?(:users)
   DB.create_table :users do
