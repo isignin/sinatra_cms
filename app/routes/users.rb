@@ -44,7 +44,7 @@ module Cms
       end
       
         
-      delete '/user/:id' do
+      delete '/users/:id' do
         user = User[params[:id]]
         if !user.nil? 
           if user.delete
