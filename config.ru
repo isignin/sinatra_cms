@@ -1,5 +1,5 @@
 #\ -p 4567
 
-require './app'
+require File.expand_path("../config/boot.rb", __FILE__)
 
 run Cms::App
